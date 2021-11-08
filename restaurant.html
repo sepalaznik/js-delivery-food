@@ -8,6 +8,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet" />
 	<link rel="stylesheet" href="assets/css/normalize.css" />
 	<link rel="stylesheet" href="assets/css/style.css" />
+	<script src="assets/js/auth.js" defer></script>
 </head>
 
 <body>
@@ -20,7 +21,10 @@
 				<input type="text" class="input input-address" placeholder="Адрес доставки" />
 			</label>
 			<div class="buttons">
-				<span class="user-name"></span>
+				<div class="user-login">
+					<span class="user-svg"></span>
+					<span class="user-name"></span>
+				</div>
 				<button class="button button-primary button-auth">
 					<span class="button-auth-svg"></span>
 					<span class="button-text">Войти</span>
@@ -304,7 +308,7 @@
 					</label>
 					<label class="label-auth">
 						<span>Пароль</span>
-						<input id="password" type="password">
+						<input id="input-password" type="password" autocomplete="on">
 					</label>
 				</fieldset>
 				<!-- /.modal-body -->

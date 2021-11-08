@@ -5,8 +5,6 @@ const userLogin = document.querySelector(".user-login");
 const userName = document.querySelector(".user-name");
 const closeAuth = document.querySelector(".close-auth");
 const logInForm = document.getElementById("logInForm");
-const inputLogin = document.getElementById("login");
-const inputPassword = document.getElementById("input-password");
 
 const login = (user) => {
     buttonAuth.style.display = "none";
@@ -37,13 +35,16 @@ closeAuth.addEventListener("click", () => {
 });
 
 logInForm.addEventListener("submit", (event) => {
+    const inputLogin = document.getElementById("login");
+    const inputPassword = document.getElementById("input-password");
+
     event.preventDefault();
     const user = {
         login: inputLogin.value,
         password: inputPassword.value
     }
-    if (user.login.trim() === "") {
-        alert('Вы не ввели имя! \nЭто поле обязательно для заполнения!');
+    if (user.login === "") {
+        alert('Вы не ввели имя покупателя! \nЭто поле обязательно для заполнения!');
         return;
     }
     localStorage.setItem("customer", JSON.stringify(user));
