@@ -1,0 +1,11 @@
+.git
+.idea
+.vscode
+
+Thumbs.db
+*.psd
+*.fig
+*.log
+*.zip
+
+**/node_modules/
