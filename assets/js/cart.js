@@ -9,6 +9,7 @@ const cart = () => {
 
     const resetCart = () => {
         cartBody.innerHTML = "";
+        priceTag.textContent = "0 ₽";
         localStorage.removeItem("cart");
         modalCart.classList.remove("is-open");
     }
