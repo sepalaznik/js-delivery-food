@@ -178,11 +178,16 @@ button {
     height: 300px;
 }
 
+.slider__wrapper {
+    overflow: hidden;
+}
+
 .promo {
     box-shadow: 0 7px 12px rgba(158, 158, 163, 0.1);
     border-radius: 10px;
     padding: 68px 70px;
     margin-bottom: 56px;
+    cursor: grab;
 }
 
 .pizza {

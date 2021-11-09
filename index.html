@@ -9,9 +9,12 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet" />
 	<link rel="stylesheet" href="./assets/css/normalize.css" />
 	<link rel="stylesheet" href="./assets/css/style.css" />
-	<script src="./assets/js/auth.js" defer></script>
-	<script src="./assets/js/cart.js" defer></script>
-	<script src="./assets/js/partners.js" defer></script>
+	<link rel="stylesheet" href="./assets/libs/chief-slider/chief-slider.css">
+	<script defer src="./assets/libs/chief-slider/chief-slider.js"></script>
+	<script defer src="./assets/js/slider.js"></script>
+	<script defer src="./assets/js/auth.js"></script>
+	<script defer src="./assets/js/cart.js"></script>
+	<script defer src="./assets/js/partners.js"></script>
 </head>
 
 <body>
@@ -47,32 +50,37 @@
 
 	<main class="main">
 		<div class="container">
-			<section class="container-promo">
-				<section class="promo pizza">
-					<h1 class="promo-title">Онлайн-сервис <br />доставки еды на дом</h1>
-					<p class="promo-text">
-						Блюда из любимого ресторана привезет курьер в перчатках, маске и с антисептиком
-					</p>
+			<section class="container-promo slider">
+				<section class="slider__wrapper">
+					<section class="slider__items">
+						<section class="promo pizza slider__item">
+							<h1 class="promo-title">Онлайн-сервис <br />доставки еды на дом</h1>
+							<p class="promo-text">
+								Блюда из любимого ресторана привезет курьер в перчатках, маске и с антисептиком
+							</p>
+						</section>
+						<section class="promo kebab slider__item">
+							<h1 class="promo-title">Шашлыки на майские <br> со скидкой 35%</h1>
+							<p class="promo-text">
+								Закажите шашлыки в любом ресторане до 10 мая и получите скидку по промокоду OMAGAD
+							</p>
+						</section>
+						<section class="promo vegetables slider__item">
+							<h1 class="promo-title">Скидка 20% на всю еду <br> по промокоду LOVE.JS</h1>
+							<p class="promo-text">
+								Блюдо из ресторана привезут вместе с двумя подарочными книгами по фронтенду
+							</p>
+						</section>
+						<section class="promo sushi slider__item">
+							<h1 class="promo-title">Сеты со скидкой до 30% <br> в ресторанах</h1>
+							<p class="promo-text">
+								Скидки на сеты до 30 мая по промокоду DADADA
+							</p>
+						</section>
+					</section>
 				</section>
-				<!-- <section class="promo kebab">
-					<h1 class="promo-title">Шашлыки на майские <br> со скидкой 35%</h1>
-					<p class="promo-text">
-						Закажите шашлыки в любом ресторане до 10 мая и получите скидку по промокоду OMAGAD
-					</p>
-				</section>
-				<section class="promo vegetables">
-					<h1 class="promo-title">Скидка 20% на всю еду <br> по промокоду LOVE.JS</h1>
-					<p class="promo-text">
-						Блюдо из ресторана привезут вместе с двумя подарочными книгами по фронтенду
-					</p>
-				</section>
-				<section class="promo sushi">
-					<h1 class="promo-title">Сеты со скидкой до 30% <br> в ресторанах</h1>
-					<p class="promo-text">
-						Скидки на сеты до 30 мая по промокоду DADADA
-					</p>
-				</section> -->
 			</section>
+			
 			<section class="restaurants">
 				<div class="section-heading">
 					<h2 class="section-title">Рестораны</h2>
