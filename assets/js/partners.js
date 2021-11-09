@@ -1,16 +1,17 @@
-const cardsRestaurants = document.querySelector(".cards-restaurants");
+const partner = () => {
+    const cardsRestaurants = document.querySelector(".cards-restaurants");
 
-const renderItem = (data) => {
-    data.forEach((item) => {
-        const { name, kitchen, image, products, time_of_delivery, stars, price } = item;
-        const a = document.createElement("a");
+    const renderItem = (data) => {
+        data.forEach((item) => {
+            const { name, kitchen, image, products, time_of_delivery, stars, price } = item;
+            const a = document.createElement("a");
 
-        a.setAttribute("href", "/restaurant.html");
-        a.classList.add("card");
-        a.classList.add("card-restaurant");
-        a.dataset.products = products;
+            a.setAttribute("href", "restaurant.html");
+            a.classList.add("card");
+            a.classList.add("card-restaurant");
+            a.dataset.products = products;
 
-        a.innerHTML = `
+            a.innerHTML = `
             <img src="${image}" alt="${name}" class="card-image" />
             <div class="card-text">
                 <div class="card-heading">
@@ -25,22 +26,25 @@ const renderItem = (data) => {
             </div>
         `;
 
-        a.addEventListener("click", (event) => {
-            event.preventDefault();
-            
-            localStorage.setItem("restaurant", JSON.stringify(item));
-            window.location.href = "/restaurant.html";
-        });
+            a.addEventListener("click", (event) => {
+                event.preventDefault();
 
-        cardsRestaurants.append(a);
-    });
+                localStorage.setItem("restaurant", JSON.stringify(item));
+                window.location.href = "restaurant.html";
+            });
+
+            cardsRestaurants.append(a);
+        });
+    };
+
+    fetch("https://js-service-delivery-default-rtdb.firebaseio.com/db/partners.json")
+        .then((response) => response.json())
+        .then((data) => {
+            renderItem(data)
+        })
+        .catch((error) => {
+            console.error(error)
+        });
 };
 
-fetch("https://js-service-delivery-default-rtdb.firebaseio.com/db/partners.json")
-    .then((response) => response.json())
-    .then((data) => {
-        renderItem(data)
-    })
-    .catch((error) => {
-        console.error(error)
-    });
+partner();
