@@ -1,7 +1,8 @@
 const handleSearch = () => {
     const inputSearch = document.querySelector(".input-search");
     const cardsRestaurants = document.querySelector(".cards-restaurants");
-    const restaurantTitle = document.querySelector(".section-title");
+    const sectionTitle = document.querySelector(".section-title");
+    const cancelSearch = document.querySelector(".logo");
 
     const addToCart = (cartItem) => {
         const cartArray = localStorage.getItem("cart") ?
@@ -53,24 +54,35 @@ const handleSearch = () => {
         cardsRestaurants.append(card);
     };
 
-
     inputSearch.addEventListener("keypress", (event) => {
         if (event.charCode === 13) {
             const value = event.target.value.trim();
-            if (!value) {
+
+            const alertInputError = () => {
                 event.target.style.backgroundColor = "#ffc0cb";
-                event.target.placeholder = "Введите запрос для поиска";
-                event.target.value = "";
                 setTimeout(() => {
                     event.target.style.backgroundColor = "";
-                    event.target.placeholder = "Поиск блюд в ресторанах";
+                    event.target.value = "";
                 }, 1500);
+            };
+
+            if (!value) {
+                event.target.value = "Введите запрос для поиска";
+                alertInputError();
                 return;
-            }
+            };
 
-            if (!/^[А-Яа-яЁё]+$/.test(value)) return;
+            if (!/^[А-Яа-яЁё]+$/.test(value)) {
+                event.target.value = "Используйте русские буквы";
+                alertInputError();
+                return;
+            };
 
-            if (value.length < 3) return;
+            if (value.length < 3) {
+                event.target.value="Введите минимум три символа"
+                alertInputError();
+                return;
+            };
 
 
             fetch("https://js-service-delivery-default-rtdb.firebaseio.com/db/partners.json")
@@ -91,13 +103,20 @@ const handleSearch = () => {
                                     return searchName.includes(value.toLowerCase());
                                 })
 
-                                restaurantTitle.textContent = "Результат поиска:";
+                                sectionTitle.textContent = "Результат поиска:";
 
                                 resultSearch.forEach(renderSearchItem);
                             })
                     })
                 })
         };
+    })
+    cancelSearch.addEventListener("click", () => {
+        sectionTitle.textContent = "Рестораны";
+        resultSearch = null;
+        inputSearch.value = "";
+        cardsRestaurants.textContent = "";
+        partners(); 
     })
 }
 

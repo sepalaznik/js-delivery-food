@@ -1,4 +1,4 @@
-const partner = () => {
+const partners = () => {
     const cardsRestaurants = document.querySelector(".cards-restaurants");
 
     const renderItem = (data) => {
@@ -53,4 +53,4 @@ const partner = () => {
         });
 };
 
-partner();
+partners();
