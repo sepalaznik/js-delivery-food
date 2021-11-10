@@ -33,7 +33,7 @@ const menu = () => {
         };
         
         localStorage.setItem("cart", JSON.stringify(cartArray));
-    }
+    };
 
     const renderItem = (data) => {
         data.forEach(({ name, image, description, price, id }) => {

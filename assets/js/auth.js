@@ -48,9 +48,16 @@ const auth = () => {
             password: inputPassword.value
         }
         if (user.login === "") {
-            alert('Вы не ввели имя покупателя! \nЭто поле обязательно для заполнения!');
+            inputLogin.style.backgroundColor = "#ffc0cb";
+            inputLogin.placeholder = "Заполните это поле!";
+            setTimeout(() => { 
+                inputLogin.style.backgroundColor = ""; 
+                inputLogin.placeholder = "";
+            }, 1500);
+            
             return;
         }
+
         localStorage.setItem("customer", JSON.stringify(user));
         login(user);
     });
