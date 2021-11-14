@@ -15,7 +15,6 @@ const menu = () => {
     const changeTitle = (restaurant) => {
         restaurantTitle.textContent = restaurant.name;
 
-        restaurantInfo.classList.add("card-info")
         restaurantInfo.innerHTML = `
             <div class="rating">${restaurant.stars}</div>
             <div class="price">От&nbsp;${restaurant.price}&nbsp;₽</div>

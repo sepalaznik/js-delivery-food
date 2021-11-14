@@ -314,7 +314,7 @@ button {
     padding: 1px 8px;
 }
 
-.card-info {
+.card-info, .restaurant-info {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -667,7 +667,7 @@ button {
         max-width: 560px;
     }
 
-    .card-info {
+    .card-info, .restaurant-info {
         flex-wrap: wrap;
     }
 
