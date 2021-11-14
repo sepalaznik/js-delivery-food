@@ -1,17 +1,19 @@
 const partners = () => {
     const cardsRestaurants = document.querySelector(".cards-restaurants");
+    const Menu = document.querySelector(".menu");
+
+    Menu.classList.add("hide");
 
     const renderItem = (data) => {
         data.forEach((item) => {
             const { name, kitchen, image, products, time_of_delivery, stars, price } = item;
-            const a = document.createElement("a");
+            const divA = document.createElement("divA");
 
-            a.setAttribute("href", "restaurant.html");
-            a.classList.add("card");
-            a.classList.add("card-restaurant");
-            a.dataset.products = products;
+            divA.classList.add("card");
+            divA.classList.add("card-restaurant");
+            divA.dataset.products = products;
 
-            a.innerHTML = `
+            divA.innerHTML = `
                 <img src="${image}" alt="${name}" class="card-image" />
                 <div class="card-text">
                     <div class="card-heading">
@@ -26,7 +28,7 @@ const partners = () => {
                 </div>
             `;
 
-            a.addEventListener("click", (event) => {
+            divA.addEventListener("click", (event) => {
                 const modalAuth = document.querySelector(".modal-auth");
                 
                 event.preventDefault();
@@ -35,11 +37,11 @@ const partners = () => {
                     modalAuth.style.display = "flex";
                 } else {
                     localStorage.setItem("restaurant", JSON.stringify(item));
-                    window.location.href = "restaurant.html";
+                    menu(window.location);
                 }
             });
 
-            cardsRestaurants.append(a);
+            cardsRestaurants.append(divA);
         });
     };
 

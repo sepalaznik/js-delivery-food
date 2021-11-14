@@ -2,7 +2,7 @@ const handleSearch = () => {
     const inputSearch = document.querySelector(".input-search");
     const cardsRestaurants = document.querySelector(".cards-restaurants");
     const sectionTitle = document.querySelector(".section-title");
-    const cancelSearch = document.querySelector(".logo");
+    const cancelSearch = document.querySelectorAll(".logo");
 
     const addToCart = (cartItem) => {
         const cartArray = localStorage.getItem("cart") ?
@@ -110,14 +110,17 @@ const handleSearch = () => {
                     })
                 })
         };
-    })
-    cancelSearch.addEventListener("click", () => {
-        sectionTitle.textContent = "Рестораны";
-        resultSearch = null;
-        inputSearch.value = "";
-        cardsRestaurants.textContent = "";
-        partners(); 
-    })
-}
+    });
+
+    cancelSearch.forEach(elem => {
+        elem.addEventListener("click", () => {
+            sectionTitle.textContent = "Рестораны";
+            resultSearch = null;
+            inputSearch.value = "";
+            cardsRestaurants.textContent = "";
+            partners(); 
+        })
+    });
+};
 
 handleSearch();

@@ -1,19 +1,26 @@
 const menu = () => {
+    const sliderPromo = document.querySelector(".container-promo");
+    const Restaurants = document.querySelector(".restaurants");
+    const Menu = document.querySelector(".menu");
     const cardsMenu = document.querySelector(".cards-menu");
-    const sectionHeading = document.querySelector(".section-heading");
+    const returnHomePage = document.querySelectorAll(".logo");
+    const restaurantTitle = document.querySelector(".restaurant-title");
+    const restaurantInfo = document.querySelector(".restaurant-info");
+    
 
+    sliderPromo.classList.add("hide");
+    Restaurants.classList.add("hide");
+    Menu.classList.remove("hide");
+    
     const changeTitle = (restaurant) => {
-        const restaurantTitle = document.querySelector(".restaurant-title");
         restaurantTitle.textContent = restaurant.name;
 
-        const cardInfo = document.createElement("div");
-        cardInfo.classList.add("card-info");
-        cardInfo.innerHTML = `
-        <div class="rating">${restaurant.stars}</div>
-        <div class="price">От&nbsp;${restaurant.price}&nbsp;₽</div>
-        <div class="category">${restaurant.kitchen}</div>
-    `
-    sectionHeading.append(cardInfo);
+        restaurantInfo.classList.add("card-info")
+        restaurantInfo.innerHTML = `
+            <div class="rating">${restaurant.stars}</div>
+            <div class="price">От&nbsp;${restaurant.price}&nbsp;₽</div>
+            <div class="category">${restaurant.kitchen}</div>
+        `
     };
 
     const addToCart = (cartItem) => {
@@ -82,9 +89,15 @@ const menu = () => {
             .catch((error) => {
                 console.error(error);
             })
-    } else {
-        window.location.href = "/"
     };
-};
 
-menu();
+    returnHomePage.forEach(elem => {
+        elem.addEventListener("click", () => {
+            restaurantTitle.textContent = "";
+            restaurantInfo.innerHTML = "";
+            cardsMenu.innerHTML = "";
+            sliderPromo.classList.remove("hide");
+            Restaurants.classList.remove("hide");
+        })
+    });
+};

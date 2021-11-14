@@ -6,16 +6,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Food Delivery Service</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic" rel="stylesheet" />
+
 	<link rel="stylesheet" href="./assets/css/normalize.css" />
 	<link rel="stylesheet" href="./assets/css/style.css" />
+
 	<link rel="stylesheet" href="./assets/libs/chief-slider/chief-slider.css">
 	<script defer src="./assets/libs/chief-slider/chief-slider.js"></script>
+	
 	<script defer src="./assets/js/slider.js"></script>
 	<script defer src="./assets/js/auth.js"></script>
 	<script defer src="./assets/js/search.js"></script>
 	<script defer src="./assets/js/cart.js"></script>
 	<script defer src="./assets/js/partners.js"></script>
+	<script defer src="./assets/js/menu.js"></script>
 </head>
 
 <body>
@@ -47,7 +52,7 @@
 			</div>
 		</header>
 	</div>
-	<!-- /.container  -->
+	<!-- /.header  -->
 
 	<main class="main">
 		<div class="container">
@@ -81,6 +86,7 @@
 					</section>
 				</section>
 			</section>
+			<!-- /.promo-slider -->
 			
 			<section class="restaurants">
 				<div class="section-heading">
@@ -90,15 +96,25 @@
 					</label>
 				</div>
 				<div class="cards cards-restaurants"></div>
+				<!-- /.cards-restaurents -->
+			</section>
+			<section class="menu">
+				<div class="section-heading">
+					<h2 class="section-title restaurant-title"></h2>
+					<div class="restaurant-info"></div>
+				</div>
+				<div class="cards cards-menu"></div>
+				<!-- /.cards-menu -->
 			</section>
 		</div>
-		<!-- /.container -->
 	</main>
 
 	<footer class="footer">
 		<div class="container">
 			<div class="footer-block">
-				<img src="assets/img/icon/logo.svg" alt="logo" class="logo footer-logo" />
+				<a class="logo">
+					<img src="assets/img/icon/logo.svg" alt="logo" class="footer-logo" />
+				</a>				
 				<nav class="footer-nav">
 					<a href="#" class="footer-link">Ресторанам </a>
 					<a href="#" class="footer-link">Курьерам</a>
@@ -110,9 +126,8 @@
 					<a href="#" class="social-link"><img src="assets/img/social/fb.svg" alt="facebook" /></a>
 					<a href="#" class="social-link"><img src="assets/img/social/vk.svg" alt="vk" /></a>
 				</div>
-				<!-- /.social-links -->
 			</div>
-			<!-- /.footer-block -->
+			<!-- /.footer -->
 		</div>
 	</footer>
 
@@ -122,9 +137,7 @@
 				<h3 class="modal-title">Корзина</h3>
 				<button class="close">&times;</button>
 			</div>
-			<!-- /.modal-header -->
 			<div class="modal-body"></div>
-			<!-- /.modal-body -->
 			<div class="modal-footer">
 				<span class="modal-pricetag">0 ₽</span>
 				<div class="footer-buttons">
@@ -132,9 +145,8 @@
 					<button class="button clear-cart">Отмена</button>
 				</div>
 			</div>
-			<!-- /.modal-footer -->
 		</div>
-		<!-- /.modal-dialog -->
+		<!-- /.modal-cart -->
 	</div>
 
 	<div class="modal-auth">
@@ -152,16 +164,14 @@
 						<input id="input-password" type="password" autocomplete="on">
 					</label>
 				</fieldset>
-				<!-- /.modal-body -->
 				<div class="modal-footer">
 					<div class="footer-buttons">
 						<button class="button button-primary button-login" type="submit">Войти</button>
 					</div>
 				</div>
 			</form>
-			<!-- /.modal-footer -->
 		</div>
-		<!-- /.modal-dialog -->
+		<!-- /.modal-auth -->
 	</div>
 </body>
 
